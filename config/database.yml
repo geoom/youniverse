@@ -13,8 +13,8 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: 5
-  username: rails
-  password: rails
+  username: <%= ENV['YOUNIVERSE_DATABASE_USER'] %>
+  password: <%= ENV['YOUNIVERSE_DATABASE_PASSWORD'] %>
   socket: /tmp/mysql.sock
 
 development:
@@ -26,7 +26,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: youniverse
+  database: youniversetest
 
 # As with config/secrets.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +49,5 @@ test:
 #
 production:
   <<: *default
-  database: youniverse
-  username: youniverse
-  password: <%= ENV['YOUNIVERSE_DATABASE_PASSWORD'] %>
+  database: <%= ENV['YOUNIVERSE_DATABASE_NAME'] %>
+  url: <%= ENV['DATABASE_URL'] %>
