@@ -16,6 +16,7 @@ default: &default
   username: <%= ENV['YOUNIVERSE_DATABASE_USER'] %>
   password: <%= ENV['YOUNIVERSE_DATABASE_PASSWORD'] %>
   socket: /tmp/mysql.sock
+  timeout: 5000
 
 development:
   <<: *default
@@ -50,4 +51,4 @@ test:
 production:
   <<: *default
   database: <%= ENV['YOUNIVERSE_DATABASE_NAME'] %>
-  url: <%= ENV['DATABASE_URL'] %>
+  host: youniversedata.c6au2sxxkpfm.sa-east-1.rds.amazonaws.com

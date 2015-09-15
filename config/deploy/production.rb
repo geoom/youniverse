@@ -5,8 +5,8 @@
 
 server '54.207.67.199', user: 'deployer', roles: %w{web}, primary: true
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
-server 'youniversedata.c6au2sxxkpfm.sa-east-1.rds.amazonaws.com',
-       user: 'deployer', roles: %w{db}
+# server 'youniversedata.c6au2sxxkpfm.sa-east-1.rds.amazonaws.com',
+#        user: 'deployer', roles: %w{db}
 set :rails_env, 'production'
 
 
