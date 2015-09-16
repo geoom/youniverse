@@ -43,40 +43,11 @@ set(:executable_config_files, %w(unicorn_init.sh))
 
 namespace :deploy do
 
-	desc "Check that we can access everything"
-	task :check_write_permissions do
-		on roles(:all) do |host|
-			if test("[ -w #{fetch(:deploy_to)} ]")
-				info "#{fetch(:deploy_to)} is writable on #{host}"
-			else
-				error "#{fetch(:deploy_to)} is not writable on #{host}"
-			end
-		end
-	end
-
-	desc "Makes sure local git is in sync with remote."
-	task :check_revision do
-		unless `git rev-parse HEAD` == `git rev-parse origin/master`
-			puts "WARNING: HEAD is not the same as origin/master"
-			puts "Run `git push` to sync changes."
-			exit
-		end
-	end
-
-	%w[start stop restart].each do |command|
-		desc "#{command} Unicorn server."
-		task command do
-			on roles(:app) do
-				execute "/etc/init.d/unicorn_#{fetch(:application)} #{command}"
-			end
-		end
-	end
-
-	before :deploy, 'deploy:check_write_permissions'
-	after 'deploy:check_write_permissions', 'deploy:check_revision'
+	before :deploy, 'check:write_permissions'
+	after 'check:write_permissions', 'check:revision'
 	before :starting, 'setup:upload_db'
-	# after 'setup:upload_db', 'setup:symlink_config'
-	# after :deploy, 'deploy:restart'
-	# after :rollback, 'deploy:restart'
-	# after :finishing, 'deploy:cleanup'
+	after :deploy, 'unicorn:restart', 'nginx:restart'
+
+	after :rollback, 'deploy:restart'
+	after :finishing, 'deploy:cleanup'
 end
