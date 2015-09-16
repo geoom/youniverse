@@ -28,6 +28,7 @@
 # Ignore application configuration
 /config/application.yml
 config/database.yml
+config/secrets.yml
 
 # Ignore .DS_Store files on Mac
 .DS_Store

@@ -16,7 +16,7 @@ set :pty, true
 set :format, :pretty
 set :log_level, :debug
 
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/secrets.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 set(:executable_config_files, %w(unicorn_init.sh))
@@ -47,8 +47,10 @@ namespace :deploy do
 
 	before :deploy, 'check:write_permissions'
 	after 'check:write_permissions', 'check:revision'
-	before :starting, 'setup:upload_db'
-	after :deploy, 'unicorn:restart', 'nginx:restart'
+	before :starting, 'setup:upload_yml'
+	before 'unicorn:restart', 'setup:symlink_config'
+	after :deploy, 'unicorn:restart'
+	after 'unicorn:restart', 'nginx:restart'
 
 	after :rollback, 'deploy:restart'
 	after :finishing, 'deploy:cleanup'
