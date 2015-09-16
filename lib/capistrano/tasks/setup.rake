@@ -19,7 +19,7 @@ namespace :setup do
 		end
 	end
 
-	desc 'Symlinks config files for Nginx and Unicorn.'
+	desc 'Symlinks config files for nginx and unicorn.'
 	task :symlink_config do
 		on roles(:app) do
 			sudo 'rm -f /etc/nginx/sites-enabled/default'
@@ -27,6 +27,11 @@ namespace :setup do
 			sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
 			sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{fetch(:application)}"
 
+			# which of the above files should be marked as executable
+			executable_files = fetch(:executable_config_files)
+			executable_files.each do |file|
+				execute :chmod, "+x #{current_path}/config/#{file}"
+			end
 		end
 	end
 end

@@ -19,6 +19,8 @@ set :log_level, :debug
 set :linked_files, %w{config/database.yml}
 set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
+set(:executable_config_files, %w(unicorn_init.sh))
+
 set :keep_releases, 5
 
 # set :rvm_ruby_version, '1.26.11'
