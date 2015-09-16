@@ -3,10 +3,8 @@
 # Defines a single server with a list of roles and multiple properties.
 # You can define all roles on a single server, or split them:
 set :stage, :production
-server '54.207.67.199', user: 'deployer', roles: %w{web}, primary: true
+server '54.207.67.199', user: 'deployer', roles: %w{app web}, primary: true
 # server 'example.com', user: 'deploy', roles: %w{app web}, other_property: :other_value
-# server 'youniversedata.c6au2sxxkpfm.sa-east-1.rds.amazonaws.com',
-#        user: 'deployer', roles: %w{db}
 set :rails_env, 'production'
 
 

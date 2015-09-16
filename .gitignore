@@ -23,9 +23,11 @@
 /.idea
 
 /tmp
+/public/assets/
 
 # Ignore application configuration
 /config/application.yml
+config/database.yml
 
 # Ignore .DS_Store files on Mac
 .DS_Store
