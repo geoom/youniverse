@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.0.0'
 # makes app configuration using ENV and a single YAML file (config/application.yml)
 gem 'figaro'
 
+gem 'activeadmin', github: 'gregbell/active_admin'  # administration framework
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -27,7 +29,7 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
-
+gem 'devise'  # authentication
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -45,4 +47,3 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
