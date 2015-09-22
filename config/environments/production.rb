@@ -26,13 +26,14 @@ Rails.application.configure do
   config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
+  config.assets.enabled = true
+
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
   # Generate digests for assets URLs.
   config.assets.digest = true
 
-  config.action_controller.asset_host = "https://s3-sa-east-1.amazonaws.com/staticyouniverse/"
   config.assets.initialize_on_precompile = true
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
@@ -57,7 +58,7 @@ Rails.application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = "http://assets.example.com"
+  config.action_controller.asset_host = "https://s3-sa-east-1.amazonaws.com/staticyouniverse/"
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
