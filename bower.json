@@ -1,0 +1,9 @@
+{
+  "name": "youniverse",
+  "vendor": {
+	  "name": "bower-rails generated vendor assets",
+	  "dependencies": {
+		  "mdi": "~1.2.65"
+	  }
+  }
+}

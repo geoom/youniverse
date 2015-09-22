@@ -13,4 +13,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require materialize-sprockets
 //= require_tree .
+
+
+(function($){
+	$(function(){
+
+		$('.button-collapse').sideNav();
+		$('.modal-trigger').leanModal();
+	});
+})(jQuery);

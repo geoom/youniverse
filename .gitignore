@@ -24,6 +24,7 @@
 
 /tmp
 /public/assets/
+vendor/assets/bower_components/
 
 # Ignore application configuration
 /config/application.yml
