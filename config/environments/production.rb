@@ -32,6 +32,9 @@ Rails.application.configure do
   # Generate digests for assets URLs.
   config.assets.digest = true
 
+  config.action_controller.asset_host = "https://s3-sa-east-1.amazonaws.com/staticyouniverse/"
+  config.assets.initialize_on_precompile = true
+
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Specifies the header that your server uses for sending files.

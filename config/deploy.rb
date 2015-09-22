@@ -49,6 +49,7 @@ namespace :deploy do
 	after 'check:write_permissions', 'check:revision'
 	before :starting, 'setup:upload_yml'
 	before 'unicorn:restart', 'setup:symlink_config'
+	after 'setup:symlink_config', 'deploy:sync_assets'
 	after :deploy, 'unicorn:restart'
 	after 'unicorn:restart', 'nginx:restart'
 
