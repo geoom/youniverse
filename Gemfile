@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'figaro'  # makes app configuration using ENV and a single YAML file (config/application.yml)
 
+gem 'aws-sdk'  # Use S3 AWS to store upload images
+
 gem 'asset_sync', group: :assets  # Synchronises Assets between Rails and S3
 
 gem 'activeadmin', github: 'gregbell/active_admin'  # administration framework
