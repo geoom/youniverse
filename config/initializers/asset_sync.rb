@@ -26,7 +26,7 @@ if defined?(AssetSync)
 	  # config.manifest = true
 	  #
 	  # Fail silently.  Useful for environments such as Heroku
-	  # config.fail_silently = true
+	  config.fail_silently = true
 	end
 
 end
