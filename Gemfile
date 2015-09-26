@@ -34,10 +34,10 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
 
 # bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0',          group: :doc
+gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring',  group: :development
+gem 'spring', group: :development
 gem 'devise'  # authentication
 
 # Use ActiveModel has_secure_password
@@ -53,6 +53,12 @@ group :development  do
 	gem 'capistrano-rbenv', '~> 2.0'
 end
 
+group :production do
+	gem 'aws-sdk'  # Use S3 AWS to store upload images
+end
+
+# Use paperclip to manage images
+gem 'paperclip', github: 'thoughtbot/paperclip'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
