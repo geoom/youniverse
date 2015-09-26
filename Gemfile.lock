@@ -71,6 +71,10 @@ GEM
     aws-sdk-resources (2.1.23)
       aws-sdk-core (= 2.1.23)
     bcrypt (3.1.10)
+    better_errors (2.1.1)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+      rack (>= 0.9.0)
     bourbon (3.2.4)
       sass (~> 3.2)
       thor
@@ -96,6 +100,7 @@ GEM
       activesupport (>= 3.0)
     cocaine (0.5.7)
       climate_control (>= 0.0.3, < 1.0)
+    coderay (1.1.0)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.0)
@@ -263,6 +268,8 @@ GEM
     orm_adapter (0.5.0)
     polyamorous (1.2.0)
       activerecord (>= 3.0)
+    quiet_assets (1.1.0)
+      railties (>= 3.1, < 5.0)
     rack (1.5.5)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -340,6 +347,7 @@ DEPENDENCIES
   activeadmin!
   asset_sync
   aws-sdk
+  better_errors
   bower-rails
   capistrano (~> 3.1.0)
   capistrano-bundler
@@ -354,6 +362,7 @@ DEPENDENCIES
   materialize-sass
   mysql2 (~> 0.3.18)
   paperclip!
+  quiet_assets
   rails (= 4.1.7)
   sass
   sass-rails (~> 5.0)
