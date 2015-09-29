@@ -1,11 +1,9 @@
 ActiveAdmin.register Request do
 
-	permit_params :name, :about
+	permit_params :name, :about, :image
 
-	# Filterable attributes on the index screen
 	filter :name
 
-	# Customize columns displayed on the index screen in the table
 	index do
 		column :name
 		column :about
@@ -20,7 +18,7 @@ ActiveAdmin.register Request do
 	form :html => {:enctype => 'multipart/form-data'} do |f|
 		f.inputs 'Details' do
 			f.input :name
-			# f.input :image, :required => false, :as => :file
+			f.input :about
 			f.input :image, hint: f.request.image? ? image_tag(f.request.image.url, height: '100') : content_tag(:span, "Upload JPG/PNG/GIF image")
 		end
 		f.actions
