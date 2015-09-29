@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'
 # Use mysql as the database for Active Record
@@ -17,10 +16,6 @@ gem 'coffee-rails', '~> 4.0.0'
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes
 # gem 'therubyracer',  platforms: :ruby
 
-gem 'figaro'  # makes app configuration using ENV and a single YAML file (config/application.yml)
-
-gem 'aws-sdk'  # Use S3 AWS to store upload images
-
 gem 'asset_sync' # Synchronises Assets between Rails and S3
 
 gem 'activeadmin', github: 'gregbell/active_admin'  # administration framework
@@ -36,9 +31,15 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-gem 'spring', group: :development
 gem 'devise'  # authentication
+gem 'twitter'  # sdk for twitter api
+
+gem 'omniauth'  # authentication system for social signin
+gem 'omniauth-oauth2'  # oauth 2 impl. for omniauth
+gem 'omniauth-twitter'  # twitter provider impl. for omniauth
+gem 'rmagick'  # an interface to the ImageMagick and GraphicsMagick
+
+gem 'simple_form'  # forms with a simple DSL
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -46,14 +47,26 @@ gem 'devise'  # authentication
 gem 'unicorn'  # Use unicorn as the app server
 
 group :development  do
-	gem 'better_errors'
-	gem 'quiet_assets'
+	gem 'better_errors'  # Erros pages more expressive, less ugly
 
 	gem 'capistrano', '~> 3.1.0'
 	gem 'capistrano-rails', '~> 1.1.1'
 	gem 'capistrano-bundler'
 	gem 'capistrano-rvm'
 	gem 'capistrano-rbenv', '~> 2.0'
+end
+
+group :development, :test do
+
+	gem 'byebug'  # Debugging library
+	gem 'quiet_assets'
+
+	# Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
+	gem 'spring'
+	gem 'figaro'  # makes app configuration using ENV and a single YAML file (config/application.yml)
+
+	gem 'web-console'  # Access an IRB console on exception pages or by using <%= console %> inv views
+
 end
 
 group :production do

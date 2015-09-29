@@ -87,7 +87,12 @@
 
         <div class="row center">
           <div class="col s12">
-            <button class="login-google btn waves-effect waves-light red"><i class="mdi mdi-google left"></i>Sign in with Google</button>
+            <% ['twitter'].each do |provider| %>
+                <%= link_to omniauth_authorize_path('user', provider), class: "login-google btn waves-effect waves-light red" do %>
+                    <i class="mdi mdi-google left"></i> <%= "Sign in with #{provider.to_s.titleize}" %>
+                <% end %>
+                <br/>
+            <% end %>
           </div>
         </div>
 
