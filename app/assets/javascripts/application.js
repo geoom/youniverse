@@ -21,5 +21,16 @@
 
 		$('.button-collapse').sideNav();
 		$('.modal-trigger').leanModal();
+
+
+		mixpanel.identify("00000");
+		mixpanel.people.set({
+			"$email": "anonymous@email.com",    // only special properties need the $
+
+			"$created": "2015-09-01 16:53:54",
+			"$last_login": new Date(),         // properties can be dates...
+
+			"gender": "Male"                    // feel free to define your own properties
+		});
 	});
 })(jQuery);

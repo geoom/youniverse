@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/gregbell/active_admin.git
-  revision: 893b46c6530cae30e30a5dd07b94f8a212a9804a
+  revision: b44b4f4896ef78b50c35c82a343356d68b937cde
   specs:
-    activeadmin (1.0.0.pre1)
+    activeadmin (1.0.0.pre2)
       arbre (~> 1.0, >= 1.0.2)
       bourbon
       coffee-rails
@@ -10,7 +10,7 @@ GIT
       formtastic_i18n
       inherited_resources (~> 1.6)
       jquery-rails
-      jquery-ui-rails (~> 5.0)
+      jquery-ui-rails
       kaminari (~> 0.15)
       rails (>= 3.2, < 5.0)
       ransack (~> 1.3)
@@ -78,10 +78,10 @@ GEM
       rack (>= 0.9.0)
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
-    bourbon (3.2.4)
-      sass (~> 3.2)
-      thor
-    bower-rails (0.8.3)
+    bourbon (4.2.5)
+      sass (~> 3.4)
+      thor (~> 0.19)
+    bower-rails (0.10.0)
     buftok (0.2.0)
     builder (3.2.2)
     byebug (6.0.2)
@@ -115,14 +115,16 @@ GEM
     coffee-script-source (1.9.1.1)
     colorize (0.7.7)
     debug_inspector (0.0.2)
-    devise (3.5.1)
+    devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
       railties (>= 3.2.6, < 5)
       responders
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
-    equalizer (0.0.11)
+    domain_name (0.5.24)
+      unf (>= 0.0.5, < 1.0.0)
+    equalizer (0.0.10)
     erubis (2.7.0)
     excon (0.45.4)
     execjs (2.6.0)
@@ -182,7 +184,7 @@ GEM
     fog-ecloud (0.3.0)
       fog-core
       fog-xml
-    fog-google (0.0.7)
+    fog-google (0.0.9)
       fog-core
       fog-json
       fog-xml
@@ -207,7 +209,7 @@ GEM
       fog-core
       fog-json
       fog-xml
-    fog-sakuracloud (1.3.1)
+    fog-sakuracloud (1.3.2)
       fog-core
       fog-json
     fog-serverlove (0.1.2)
@@ -239,8 +241,14 @@ GEM
       actionpack (>= 3.2, < 5)
       activesupport (>= 3.2, < 5)
     hashie (3.4.2)
-    http (0.6.4)
+    http (0.9.7)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
       http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
+    http-form_data (1.0.1)
     http_parser.rb (0.6.0)
     i18n (0.7.0)
     inflecto (0.0.2)
@@ -267,21 +275,21 @@ GEM
     kgio (2.10.0)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
-    materialize-sass (0.95.2)
-      sass (~> 3.1)
+    materialize-sass (0.97.1)
+      sass (~> 3.3)
     memoizable (0.4.2)
       thread_safe (~> 0.3, >= 0.3.1)
     mime-types (2.6.2)
     mini_portile (0.6.2)
-    minitest (5.8.0)
+    minitest (5.8.1)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
     mysql2 (0.3.20)
-    naught (1.0.0)
+    naught (1.1.0)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
-    net-ssh (2.9.2)
+    net-ssh (3.0.1)
     nokogiri (1.6.6.2)
       mini_portile (~> 0.6.0)
     oauth (0.4.7)
@@ -300,7 +308,7 @@ GEM
     omniauth-oauth2 (1.3.1)
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
-    omniauth-twitter (1.2.0)
+    omniauth-twitter (1.2.1)
       json (~> 1.3)
       omniauth-oauth (~> 1.1)
     orm_adapter (0.5.0)
@@ -337,7 +345,7 @@ GEM
     rdoc (4.2.0)
     responders (1.1.2)
       railties (>= 3.2, < 4.2)
-    rmagick (2.15.3)
+    rmagick (2.15.4)
     sass (3.4.18)
     sass-rails (5.0.4)
       railties (>= 4.0.0, < 5.0)
@@ -348,13 +356,13 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    simple_form (3.1.0)
+    simple_form (3.2.0)
       actionpack (~> 4.0)
       activemodel (~> 4.0)
     simple_oauth (0.3.1)
     spring (1.4.0)
-    sprockets (3.3.4)
-      rack (~> 1.0)
+    sprockets (3.3.5)
+      rack (> 1, < 3)
     sprockets-rails (2.3.3)
       actionpack (>= 3.0)
       activesupport (>= 3.0)
@@ -368,12 +376,12 @@ GEM
     tilt (2.0.1)
     turbolinks (2.5.3)
       coffee-rails
-    twitter (5.14.0)
+    twitter (5.15.0)
       addressable (~> 2.3)
       buftok (~> 0.2.0)
-      equalizer (~> 0.0.9)
+      equalizer (= 0.0.10)
       faraday (~> 0.9.0)
-      http (~> 0.6.0)
+      http (>= 0.4, < 0.10)
       http_parser.rb (~> 0.6.0)
       json (~> 1.8)
       memoizable (~> 0.4.0)
@@ -438,3 +446,6 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
   unicorn
   web-console
+
+BUNDLED WITH
+   1.10.6
