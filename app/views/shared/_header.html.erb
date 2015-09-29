@@ -3,9 +3,11 @@
   <div class="nav-wrapper container">
     <%= link_to 'Y', root_path, class: 'brand-logo' %>
 
-    <div class="hide-on-med-and-down" style="float: right; margin-left: 30px;">
-      <%= link_to 'Make a request', new_request_path, class: 'waves-effect waves-light btn' %>
-    </div>
+    <% if user_signed_in? %>
+        <div class="hide-on-med-and-down" style="float: right; margin-left: 30px;">
+          <%= link_to 'Make a request', new_request_path, class: 'waves-effect waves-light btn' %>
+        </div>
+    <% end %>
 
     <!-- Standard menu -->
     <ul class="right hide-on-med-and-down">
@@ -23,7 +25,7 @@
       <% if user_signed_in? %>
           <li><%= link_to current_user.name, current_user %></li>
           <li><%= link_to "Logout", destroy_user_session_path %></li>
-            <li><%= link_to 'Make a request', new_request_path, class: 'waves-effect waves-light btn' %></li>
+          <li><%= link_to 'Make a request', new_request_path, class: 'waves-effect waves-light btn' %></li>
       <% else %>
           <li><a href="#login-form-modal" class="modal-trigger">Sign in</a></li>
       <% end %>
