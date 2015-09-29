@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
 	resources :products
 	resources :users
+	resources :requests, only: [:new, :create, :show]
 	resources :sitemap, only: [:index]
 
 end

@@ -74,7 +74,7 @@ group :production do
 end
 
 # Use paperclip to manage images
-gem 'paperclip', github: 'thoughtbot/paperclip', :branch => 'v3.5'
+gem 'paperclip', github: 'thoughtbot/paperclip', :branch => 'v4.3'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
