@@ -40,4 +40,12 @@ class User < ActiveRecord::Base
 		authorization.user
 	end
 
+	def cart_count
+		$redis.scard "cart#{id}"
+	end
+
+	def clear_cart_cache
+		$redis.del "cart#{id}"
+	end
+
 end

@@ -34,3 +34,5 @@ config/secrets.yml
 
 # Ignore .DS_Store files on Mac
 .DS_Store
+
+*.rdb

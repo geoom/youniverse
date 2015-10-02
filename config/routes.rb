@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 	ActiveAdmin.routes(self)
 
-	devise_for :users, controllers: { omniauth_callbacks: "omniauth_sessions" }
+	devise_for :users, controllers: {omniauth_callbacks: "omniauth_sessions"}
 	devise_for :admin_users, ActiveAdmin::Devise.config
 
 
@@ -14,5 +14,10 @@ Rails.application.routes.draw do
 	resources :users
 	resources :requests, only: [:new, :create, :show]
 	resources :sitemap, only: [:index]
+
+	resource :cart, only: [:show] do
+		put 'add/:product_id', to: 'carts#add', as: :add_to
+		put 'remove/:product_id', to: 'carts#remove', as: :remove_from
+	end
 
 end

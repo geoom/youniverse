@@ -76,5 +76,7 @@ end
 # Use paperclip to manage images
 gem 'paperclip', github: 'thoughtbot/paperclip', :branch => 'v4.3'
 
-# Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'redis'
+gem 'redis-namespace'
+gem 'redis-rails'
+gem 'redis-rack-cache'

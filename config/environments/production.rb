@@ -95,4 +95,10 @@ Rails.application.configure do
        :s3_region => 'sa-east-1'
   }
 
+  # config.cache_store = :redis_store, { :host => 'redis-cluster-1.ofilpt.0001.sae1.cache.amazonaws.com:6379',
+  #                                      :port => 6379,
+  #                                      :db => 0,
+  #                                      :namespace => 'cache',
+  #                                      :expires_in => 90.minutes }
+
 end
