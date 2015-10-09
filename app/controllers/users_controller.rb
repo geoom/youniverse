@@ -36,7 +36,6 @@ class UsersController < ApplicationController
 		redirect_to root_path unless @user == current_user
 	end
 
-	# 2015-07-23 RICHARD: Added to implement strong parameters
 	def user_params
 		params.require(:user).permit(:name, :user, :about)
 	end

@@ -1,3 +1,4 @@
+<div id="mycart">
 <div class="p1 glassy-bg mb1 text-center radius-l1 radius-r1">
   <h4>My Cart</h4>
   <p class="mb0"> You've selected <span class="cart-count"><%=current_user.cart_count%></span> products!</p>
@@ -13,9 +14,10 @@
         <p class="scale ptm"> <%= product.name %> </p>
       </div>
       <div class="column large-3 primary-bg text-center radius-r1" data-equalizer-watch>
-        <%=link_to "" , data: {targetUrl: remove_from_cart_path(product)} do%>
+        <%=link_to '' , data: {targetUrl: remove_from_cart_path(product)} do%>
             <i class="fi-x right"></i>
         <%end%>
       </div>
     </div>
 <%end%>
+</div>

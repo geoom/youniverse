@@ -29,7 +29,6 @@ class RequestsController < ApplicationController
 
 	private
 
-	# Never trust parameters from the scary internet, only allow the white list through.
 	def request_params
 		params.require(:request).permit(:name, :about, :image)
 	end
