@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150929043123) do
+ActiveRecord::Schema.define(version: 20151011231535) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -56,6 +56,27 @@ ActiveRecord::Schema.define(version: 20150929043123) do
     t.datetime "updated_at"
     t.string   "username"
   end
+
+  create_table "model_items", force: true do |t|
+    t.string   "sex"
+    t.decimal  "price",      precision: 4, scale: 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "model_id"
+  end
+
+  add_index "model_items", ["model_id"], name: "index_model_items_on_model_id", using: :btree
+
+  create_table "models", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "type"
+    t.integer  "product_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "models", ["product_id"], name: "index_models_on_product_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "name"
