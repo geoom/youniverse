@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151011233127) do
+ActiveRecord::Schema.define(version: 20151012162220) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -59,7 +59,7 @@ ActiveRecord::Schema.define(version: 20151011233127) do
 
   create_table "model_items", force: true do |t|
     t.string   "sex"
-    t.decimal  "price",              precision: 4, scale: 2
+    t.decimal  "price",              precision: 6, scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "model_id"

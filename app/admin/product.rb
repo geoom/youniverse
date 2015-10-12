@@ -42,7 +42,7 @@ ActiveAdmin.register Product do
 		link_to 'Add model', new_admin_product_model_path(product)
 	end
 
-	sidebar 'Products Details', only: [:show, :edit] do
+	sidebar 'Product Details', only: [:show, :edit] do
 		ul do
 			li link_to 'List all models', admin_product_models_path(product)
 		end
