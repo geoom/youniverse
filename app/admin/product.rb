@@ -1,6 +1,7 @@
 ActiveAdmin.register Product do
 
 	permit_params :name, :description, :design_image
+	actions :all, except: [:destroy]
 
 	filter :name
 
@@ -34,6 +35,16 @@ ActiveAdmin.register Product do
 				image_tag(product.design_image.url(:thumb))
 				product.design_image ? image_tag(product.design_image.url, height: '100') : content_tag(:span, "No image yet")
 			end
+		end
+	end
+
+	action_item :view, only: :show do
+		link_to 'Add model', new_admin_product_model_path(product)
+	end
+
+	sidebar 'Products Details', only: [:show, :edit] do
+		ul do
+			li link_to 'List all models', admin_product_models_path(product)
 		end
 	end
 
