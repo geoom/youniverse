@@ -28,6 +28,10 @@ class Product < ActiveRecord::Base
 	          :presence => true,
 	          :uniqueness => true
 
+	def to_s
+		"#{name}"
+	end
+
 
 	def cart_action(current_user_id)
 		if $redis.sismember "cart#{current_user_id}", id

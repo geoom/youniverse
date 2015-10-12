@@ -23,4 +23,8 @@ class ModelItem < ActiveRecord::Base
 	                     :size => { :in => 0..10.megabytes },
 	                     :content_type => { :content_type => /^image\/(jpeg|png|gif)$/ }
 
+	def to_s
+		"#{model.name}:  #{sex} - #{price}"
+	end
+
 end
