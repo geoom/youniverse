@@ -14,6 +14,7 @@ class RequestsController < ApplicationController
 	# POST /@requests.json
 	def create
 		@request = Request.new(request_params)
+		@request.user = current_user
 
 		respond_to do |format|
 			if @request.save

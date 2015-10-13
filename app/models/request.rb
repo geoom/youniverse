@@ -1,4 +1,8 @@
 class Request < ActiveRecord::Base
+
+	belongs_to :user
+	STATUS_OPTIONS = %w[submitted approved rejected]
+
 	has_attached_file :image,
 	                  :path => ':rails_root/public/system/:class/:attachment/:id/:basename_:style.:extension',
 	                  :url => '/system/:class/:attachment/:id/:basename_:style.:extension',
@@ -21,7 +25,12 @@ class Request < ActiveRecord::Base
 	                     :size => { :in => 0..10.megabytes },
 	                     :content_type => { :content_type => /^image\/(jpeg|png|gif)$/ }
 
-	validates :name,
-	          :presence => true,
-	          :uniqueness => true
+	validates :name, :presence => true, :uniqueness => true
+	validates :about, :presence => true, length: {
+			minimum: 10,
+			maximum: 500,
+			too_short: "must have at least %{count} words",
+			too_long: "must have at most %{count} words"
+	}
+
 end

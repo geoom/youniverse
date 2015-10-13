@@ -2,6 +2,7 @@ ActiveAdmin.register ModelItem do
 
 
 	permit_params :sex, :price, :published, :image
+	actions :all, except: [:destroy]
 	belongs_to :model
 	navigation_menu :model
 

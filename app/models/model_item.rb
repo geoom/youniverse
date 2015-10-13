@@ -26,7 +26,7 @@ class ModelItem < ActiveRecord::Base
 	                     :size => { :in => 0..10.megabytes },
 	                     :content_type => { :content_type => /^image\/(jpeg|png|gif)$/ }
 
-	validates :sex, presence: true
+	validates :sex, presence: true, inclusion: { in: SEX_OPTIONS }
 	validates :price, presence: true, :format => { :with => /\A\d{1,4}(?:\.\d{0,2})?\z/ },
 	          :numericality => {greater_than_or_equal_to: 0}
 

@@ -1,6 +1,6 @@
 class Product < ActiveRecord::Base
 
-	has_many :models
+	has_many :models, :dependent => :destroy
 
 	has_attached_file :design_image,
 	                  :path => ':rails_root/public/system/:class/:attachment/:id/:basename_:style.:extension',

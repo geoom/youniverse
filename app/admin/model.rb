@@ -1,11 +1,13 @@
 ActiveAdmin.register Model do
 
 	permit_params :name, :description, :published, :sort
+	actions :all, except: [:destroy]
 	belongs_to :product
 	navigation_menu :product
 
 
 	index do
+		column :id
 		column :name
 		column :description
 		column :sort do |model|
@@ -34,7 +36,7 @@ ActiveAdmin.register Model do
 			input :description
 			input :published
 			input :sort, :as => :radio, collection: {
-					'T-shirt' => 't-shirt', 'Pullover' => 'p-screwneck', 'Hoodie' => 'p-hoodie', 'Tank' => 'tank'
+					'T-shirt' => 't-shirt', 'Pullover' => 'p-crewneck', 'Hoodie' => 'p-hoodie', 'Tank' => 'tank'
 			}
 		end
 		actions
