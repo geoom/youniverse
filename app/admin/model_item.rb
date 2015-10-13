@@ -13,37 +13,32 @@ ActiveAdmin.register ModelItem do
 			f.input :sex, :as => :radio, :collection => {'Male' => 'm', 'Female' => 'f', 'Unisex' => 'u'}
 			f.input :price, :hint => '4 integers at most and 2 decimals at most, example: 3452.54, price in dollars'
 			f.input :published
-			f.input :image, hint: f.model_item.image ? image_tag(f.model_item.image.url, height: '100') : content_tag(:span, "Upload JPG/PNG/GIF image")
+			f.input :image, hint: f.model_item.image? ? image_tag(f.model_item.image.url, height: '100') : content_tag(:span, "Upload JPG/PNG/GIF image")
 		end
 		f.actions
 	end
 
-	index do
-		column :sex do |item|
-			if item.sex == 'm'
-				content_tag(:span, 'male')
-			elsif item.sex == 'f'
-				content_tag(:span, 'female')
-			elsif item.sex == 'u'
-				content_tag(:span, 'unisex')
-			else
-				content_tag(:span, 'unknown')
-			end
-		end
-		column :price
-		column :published
-		column :image do |model_item|
-			link_to model_item.image.url, target: '_blank' do
+	index :as => :grid do |model_item|
+		div do
+			a :href => admin_model_model_item_path(model_item.model, model_item) do
 				image_tag(model_item.image.url(:thumb))
 			end
 		end
-		column :created_at
-		actions
 	end
 
 	show do |model_item|
 		attributes_table do
-			row :sex
+			row :sex do
+				if model_item.sex == 'm'
+					content_tag(:span, 'male')
+				elsif model_item.sex == 'f'
+					content_tag(:span, 'female')
+				elsif model_item.sex == 'u'
+					content_tag(:span, 'unisex')
+				else
+					content_tag(:span, 'unknown')
+				end
+			end
 			row :price
 			row :image do
 				image_tag(model_item.image.url(:thumb))

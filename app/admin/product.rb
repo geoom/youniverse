@@ -2,18 +2,18 @@ ActiveAdmin.register Product do
 
 	permit_params :name, :description, :published, :design_image
 	actions :all, except: [:destroy]
+	scope :all, :default => true
+	scope :published do |products|
+		products.where(:published => true)
+	end
 
-	index do
-		column :name
-		column :description
-		column :design_image do |product|
-			link_to product.design_image.url, target: '_blank' do
+	index :as => :grid do |product|
+		div do
+			a :href => admin_product_path(product) do
 				image_tag(product.design_image.url(:thumb))
 			end
 		end
-		column :published
-		column :created_at
-		actions
+		a truncate(product.name), :href => admin_product_path(product)
 	end
 
 	form :html => {:enctype => 'multipart/form-data'} do |f|

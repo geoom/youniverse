@@ -7,7 +7,7 @@ ActiveAdmin.register Model do
 
 
 	index do
-		column :id
+		selectable_column
 		column :name
 		column :description
 		column :sort do |model|
