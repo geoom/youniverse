@@ -40,7 +40,7 @@ gem 'omniauth-oauth2'  # oauth 2 impl. for omniauth
 gem 'omniauth-twitter'  # twitter provider impl. for omniauth
 gem 'rmagick'  # an interface to the ImageMagick and GraphicsMagick
 
-gem 'simple_form'  # forms with a simple DSL
+gem 'formtastic', '~> 3.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

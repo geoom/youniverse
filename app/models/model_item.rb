@@ -1,5 +1,8 @@
 class ModelItem < ActiveRecord::Base
+
 	belongs_to :model
+	SEX_OPTIONS = %w[m f u]  # male(m), female(f) and unisex(u)
+
 
 	has_attached_file :image,
 	                  :path => ':rails_root/public/system/:class/:attachment/:id/:basename_:style.:extension',
@@ -22,6 +25,10 @@ class ModelItem < ActiveRecord::Base
 	                     :presence => true,
 	                     :size => { :in => 0..10.megabytes },
 	                     :content_type => { :content_type => /^image\/(jpeg|png|gif)$/ }
+
+	validates :sex, presence: true
+	validates :price, presence: true, :format => { :with => /\A\d{1,4}(?:\.\d{0,2})?\z/ },
+	          :numericality => {greater_than_or_equal_to: 0}
 
 	def to_s
 		"#{model.name}:  #{sex} - #{price}"

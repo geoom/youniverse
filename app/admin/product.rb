@@ -1,9 +1,7 @@
 ActiveAdmin.register Product do
 
-	permit_params :name, :description, :design_image
+	permit_params :name, :description, :published, :design_image
 	actions :all, except: [:destroy]
-
-	filter :name
 
 	index do
 		column :name
@@ -13,7 +11,7 @@ ActiveAdmin.register Product do
 				image_tag(product.design_image.url(:thumb))
 			end
 		end
-		column :active
+		column :published
 		column :created_at
 		actions
 	end
@@ -22,6 +20,7 @@ ActiveAdmin.register Product do
 		f.inputs 'Details' do
 			f.input :name
 			f.input :description
+			f.input :published
 			f.input :design_image, hint: f.product.design_image ? image_tag(f.product.design_image.url, height: '100') : content_tag(:span, "Upload JPG/PNG/GIF image")
 		end
 		f.actions
@@ -31,6 +30,7 @@ ActiveAdmin.register Product do
 		attributes_table do
 			row :name
 			row :description
+			row :published
 			row :design_image do
 				image_tag(product.design_image.url(:thumb))
 				product.design_image ? image_tag(product.design_image.url, height: '100') : content_tag(:span, "No image yet")

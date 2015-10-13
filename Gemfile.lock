@@ -382,9 +382,6 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
-    simple_form (3.2.0)
-      actionpack (~> 4.0)
-      activemodel (~> 4.0)
     simple_oauth (0.3.1)
     spring (1.4.0)
     sprockets (3.3.5)
@@ -452,6 +449,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   figaro
+  formtastic (~> 3.0)
   jbuilder (~> 2.0)
   jquery-rails
   materialize-sass
@@ -470,7 +468,6 @@ DEPENDENCIES
   sass
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
-  simple_form
   spring
   sqlite3
   turbolinks
