@@ -1,7 +1,7 @@
 ActiveAdmin.register ModelItem do
 
 
-	permit_params :sex, :price, :image
+	permit_params :sex, :price, :published, :image
 	belongs_to :model
 	navigation_menu :model
 
@@ -11,6 +11,7 @@ ActiveAdmin.register ModelItem do
 			f.input :model, :as => :select, :collection => Model.all
 			f.input :sex, :as => :radio, :collection => {'Male' => 'm', 'Female' => 'f', 'Unisex' => 'u'}
 			f.input :price, :hint => '4 integers at most and 2 decimals at most, example: 3452.54, price in dollars'
+			f.input :published
 			f.input :image, hint: f.model_item.image ? image_tag(f.model_item.image.url, height: '100') : content_tag(:span, "Upload JPG/PNG/GIF image")
 		end
 		f.actions
@@ -29,6 +30,7 @@ ActiveAdmin.register ModelItem do
 			end
 		end
 		column :price
+		column :published
 		column :image do |model_item|
 			link_to model_item.image.url, target: '_blank' do
 				image_tag(model_item.image.url(:thumb))
