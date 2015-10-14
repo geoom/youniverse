@@ -2,7 +2,9 @@
 <div class="section no-pad-bot">
   <div class="container">
     <br><br>
+
     <h1 class="header">Youniverse</h1>
+
     <div class="row">
       <h5 class="header col s12 light">A modern place to find coolest dress</h5>
     </div>
@@ -16,58 +18,46 @@
 <div class="section">
   <div class="row">
 
-    <div class="col s6 m4 l3">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="https://dov5cor25da49.cloudfront.net/products/6210/636x460shirt_guys_01.jpg">
-        </div>
-        <ul class="card-action-buttons">
-          <li><a class="btn-floating waves-effect waves-light red accent-2"><i class="mdi-action-favorite"></i></a>
-          </li>
-          <li><a class="btn-floating waves-effect waves-light light-blue"><i class="mdi-action-info activator"></i></a>
-          </li>
-        </ul>
-        <div class="card-content">
-          <p class="card-title activator grey-text text-darken-4">
-            Threadless Mens Tee
-          </p>
-          <p style="font-size: 20px">$14 - $20</p>
 
-        </div>
-        <div class="card-reveal" style="display: none; transform: translateY(0px);">
-          <span class="card-title grey-text text-darken-4"><a href="#">Threadless Mens Tee</a> <i class="material-icons right">close</i></span>
-          <p style="margin: 0; font-size: 12px;">Designed by Pepito Martinez</p>
-          <h5>$14 - $20</h5>
-          <p>Here is some more information about this product.</p>
-          <p><a href="#!">View more details</a></p>
-        </div>
-      </div>
-    </div>
+    <% if @products.each do |product| %>
 
-    <div class="col s6 m4 l3">
-      <div class="card">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="https://dov5cor25da49.cloudfront.net/products/6360/636x460vneck_guys_01.jpg">
+        <div class="col s6 m4 l3">
+          <div class="card">
+            <% if product.design_image.exists? %>
+                <div class="card-image waves-effect waves-block waves-light">
+                  <%= image_tag product.design_image.url(:preview) %>
+                </div>
+            <% end %>
+
+            <ul class="card-action-buttons">
+              <li><a class="btn-floating waves-effect waves-light red accent-2"><i class="mdi-action-favorite"></i></a>
+              </li>
+              <li>
+                <a class="btn-floating waves-effect waves-light light-blue"><i class="mdi-action-info activator"></i></a>
+              </li>
+            </ul>
+            <div class="card-content">
+              <p class="card-title activator grey-text text-darken-4"><%= product.name %></p>
+
+            </div>
+            <div class="card-reveal" style="display: none; transform: translateY(0px);">
+          <span class="card-title grey-text text-darken-4">
+            <a href="#"><%= product.name %></a><i class="material-icons right">close</i></span>
+
+              <p style="margin: 0; font-size: 12px;">Designed by pepito</p>
+
+              <p><%= product.description %></p>
+              <p><%= product.var %></p>
+
+              <p><a href="#!">View more details</a></p>
+            </div>
+          </div>
         </div>
-        <ul class="card-action-buttons">
-          <li><a class="btn-floating waves-effect waves-light red accent-2"><i class="mdi-action-favorite"></i></a>
-          </li>
-          <li><a class="btn-floating waves-effect waves-light light-blue"><i class="mdi-action-info activator"></i></a>
-          </li>
-        </ul>
-        <div class="card-content">
-          <p class="card-title activator grey-text text-darken-4">Mens Tee</p>
-          <p style="font-size: 20px">$14 - $18</p>
-        </div>
-        <div class="card-reveal" style="display: none; transform: translateY(0px);">
-          <span class="card-title grey-text text-darken-4"><a href="#">Mens Tee</a><i class="material-icons right">close</i></span>
-          <p style="margin: 0; font-size: 12px;">Designed by Pepito Martinez</p>
-          <h5>$14 - $20</h5>
-          <p>Here is some more information about this product.</p>
-          <p><a href="#!">View more details</a></p>
-        </div>
-      </div>
-    </div>
+    <% end.empty? %>
+        <p> no publications so far :(</p>
+
+    <% end %>
+
 
   </div>
 </div>
