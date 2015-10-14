@@ -71,7 +71,7 @@ group :development, :test do
 end
 
 group :production do
-	gem 'aws-sdk'  # Use S3 AWS to store upload images
+	gem 'aws-sdk', '2.1.23'  # Use S3 AWS to store upload images
 end
 
 # Use paperclip to manage images

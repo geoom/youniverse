@@ -437,7 +437,7 @@ PLATFORMS
 DEPENDENCIES
   activeadmin!
   asset_sync
-  aws-sdk
+  aws-sdk (= 2.1.23)
   better_errors
   bower-rails
   byebug
