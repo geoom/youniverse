@@ -70,9 +70,8 @@ group :development, :test do
 
 end
 
-group :production do
-	gem 'aws-sdk', '< 2.0'  # Use S3 AWS to store upload images
-end
+# Use S3 AWS to store upload images
+gem 'aws-sdk', '< 2.0'
 
 # Use paperclip to manage images
 gem 'paperclip', github: 'thoughtbot/paperclip', :branch => 'v4.3'
