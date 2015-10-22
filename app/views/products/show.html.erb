@@ -1,31 +1,30 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+  <div class="row">
+    <div class="col s8">
+      <%= image_tag @product.design_image.url(:large) %>
+    </div>
+    <div class="col s4">
+      <p><%= @product.name %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @product.name %>
-</p>
+      <p><%= @product.description %></p>
 
-<p>
-  <strong>Description:</strong>
-  <%= @product.description %>
-</p>
+      <p>models:</p>
+      <ul>
+        <% @product.models.each do |model| %>
+            <li><%= model.name %></li>
+        <% end %>
+      </ul>
 
-<p>
-  <strong>Active:</strong>
-  <%= @product.active %>
-</p>
+      <% if signed_in? %>
+          <%= link_to " ", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@product), removeUrl: remove_from_cart_path(@product)} do %>
+              <i class="fi-shopping-cart"></i>
+              <span><%= @cart_action %></span> Cart
+          <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Design image:</strong>
-  <%= image_tag @product.design_image.url(:large) %>
-</p>
 
-<%if signed_in?%>
-    <%=link_to "", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@product), removeUrl: remove_from_cart_path(@product)} do%>
-        <i class="fi-shopping-cart"></i>
-        <span><%=@cart_action%></span> Cart
-    <%end%>
-<%end%> |
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
-<%= link_to 'Back', products_path %>
+

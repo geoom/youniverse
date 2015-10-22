@@ -37,7 +37,9 @@
               </li>
             </ul>
             <div class="card-content">
-              <p class="card-title activator grey-text text-darken-4"><%= product.name %></p>
+              <p class="card-title activator grey-text text-darken-4">
+                <%= link_to product.name, product %>
+              </p>
 
             </div>
             <div class="card-reveal" style="display: none; transform: translateY(0px);">

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
 	get 'home' => 'static_pages#home'
 
-	resources :products
+	resources :products, only: [:show]
 	resources :users
 	resources :requests, only: [:new, :create, :show]
 	resources :sitemap, only: [:index]
