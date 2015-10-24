@@ -8,6 +8,7 @@ class CartsController < ApplicationController
 
 	def add
 		$redis.sadd current_user_cart, params[:product_id]
+		puts 'size param is' + params[:size]
 		render json: current_user.cart_count, status: 200
 	end
 

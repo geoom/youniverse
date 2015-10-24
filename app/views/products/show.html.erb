@@ -1,24 +1,53 @@
 <div class="container">
   <div class="row">
-    <div class="col s8">
-      <%= image_tag @product.design_image.url(:large) %>
+    <div class="col l8">
+      <div class="row">
+        <div class="col l12">
+          <div id="image">
+            <%= image_tag @product.design_image.url(:large), width: '500' %>
+
+          </div>
+        </div>
+      </div>
+      <div class="row model-options">
+        <div class="col l12">
+          <% @product.models.each do |model| %>
+              <% model.model_items.each do |item| %>
+                  <%= link_to '', class: 'image', rel: item.image.url(:large), sex: item.sex, price: item.price, id: item.id do %>
+                      <%= image_tag item.image.url(:thumb), class: 'thumb' %>
+                  <% end %>
+              <% end %>
+          <% end %>
+
+          <%= link_to '', class: 'image', rel: @product.design_image.url(:large) do %>
+              <%= image_tag @product.design_image.url(:thumb), class: 'thumb selected' %>
+          <% end %>
+        </div>
+      </div>
     </div>
     <div class="col s4">
+
+      <input type="hidden" name="item-id"/>
+      <input type="hidden" name="item-sex"/>
+      <input type="hidden" name="item-price"/>
+
       <p><%= @product.name %></p>
 
       <p><%= @product.description %></p>
 
-      <p>models:</p>
-      <ul>
-        <% @product.models.each do |model| %>
-            <li><%= model.name %></li>
-        <% end %>
-      </ul>
+      <div class="size-options">
+        <p><strong>Select a model below</strong></p>
+      </div>
+
+      <br/><br/><br/>
 
       <% if signed_in? %>
-          <%= link_to " ", class: "button", data: {target: @cart_action, addUrl: add_to_cart_path(@product), removeUrl: remove_from_cart_path(@product)} do %>
-              <i class="fi-shopping-cart"></i>
-              <span><%= @cart_action %></span> Cart
+          <%= link_to '', id: 'add-to-cart-button', class: 'waves-effect waves-light btn light-blue darken-1', data: {url: add_to_cart_path} do %>
+              <i class="material-icons left">shopping_cart</i>Add to cart
+          <% end %>
+      <% else %>
+          <%= link_to '', id: 'add-to-cart-button', class: 'waves-effect waves-light btn light-blue darken-1', onClick: "alert('Sign in before!')" do %>
+              <i class="material-icons left">shopping_cart</i>Add to cart
           <% end %>
       <% end %>
     </div>

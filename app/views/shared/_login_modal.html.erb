@@ -1,0 +1,31 @@
+<!-- Login form modal -->
+<div id="login-form-modal" class="modal" style="width: 100%">
+  <div class="modal-content">
+    <div class="row">
+      <div class="col s12">
+
+        <div class="valign center">
+          <h4>Sign in to Youniverse</h4><br/>
+        </div>
+
+        <div class="row center">
+          <div class="col s12">
+            <% ['twitter'].each do |provider| %>
+                <%= link_to omniauth_authorize_path('user', provider), class: "login-google btn waves-effect waves-light red" do %>
+                    <i class="mdi mdi-google left"></i> <%= "Sign in with #{provider.to_s.titleize}" %>
+                <% end %>
+                <br/>
+            <% end %>
+          </div>
+        </div>
+
+        <div class="row center">
+          <p class="small">We will never post to Twitter or Facebook without your permission.
+            For more info, please see our <a href="#">Login FAQ</a>.</p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Login form modal -->

@@ -4,25 +4,44 @@
 
 
 $(window).load ->
-	$('a[data-target]').click (e) ->
+	$('#add-to-cart-button').click (e) ->
 		e.preventDefault()
 		$this = $(this)
-		if $this.data('target') == 'Add to'
-			url = $this.data('addurl')
-			new_target = "Remove from"
-		else
-			url = $this.data('removeurl')
-			new_target = "Add to"
-		$.ajax url: url, type: 'put', success: (data) ->
-			$('.cart-count').html(data)
-			$this.find('span').html(new_target)
-			$this.data('target', new_target)
+
+		url = $this.data('url')
+
+		size = $("select[name='item-size']").val()
+		sex = $("input[name='item-sex']").val()
+		item_id = $("input[name='item-id']").val()
+		price = $("input[name='item-price']").val()
+
+		debugger
+
+		if is_valid_data(item_id, size, sex, price)
+
+			data =
+				"size": size
+				"sex": sex
+				"item_id": item_id
+				"price": price
 
 
-	$('#mycart .fi-x').click (e) ->
-		e.preventDefault()
-		$this = $(this).closest('a')
-		url = $this.data('targeturl')
-		$.ajax url: url, type: 'put', success: (data) ->
-			$('.cart-count').html(data)
-			$this.closest('.cart-movie').slideUp()
+			$.ajax url: url, data: data, type: 'put', success: (data) ->
+				$('.cart-count').html(data)
+
+
+	is_valid_data = (id, size, sex, price) ->
+		if id is ''
+			alert('You must to select a model')
+			return false
+		if not size? or typeof size is 'undefined'
+			alert('You must to select a size')
+			return false
+		if sex is ''
+			alert('data is invalid: sex is missing')
+			return false
+		if price is ''
+			alert('data is invalid: price is missing')
+			return false
+		return true
+

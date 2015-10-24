@@ -16,8 +16,8 @@ Rails.application.routes.draw do
 	resources :sitemap, only: [:index]
 
 	resource :cart, only: [:show] do
-		put 'add/:product_id', to: 'carts#add', as: :add_to
-		put 'remove/:product_id', to: 'carts#remove', as: :remove_from
+		put 'add/', to: 'carts#add', as: :add_to
+		put 'remove/', to: 'carts#remove', as: :remove_from
 	end
 
 end
