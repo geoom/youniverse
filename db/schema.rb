@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151013223222) do
+ActiveRecord::Schema.define(version: 20151024101615) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -83,6 +83,31 @@ ActiveRecord::Schema.define(version: 20151013223222) do
   end
 
   add_index "models", ["product_id"], name: "index_models_on_product_id", using: :btree
+
+  create_table "order_items", force: true do |t|
+    t.integer  "quantity",                                        default: 1
+    t.decimal  "total_price",             precision: 6, scale: 2
+    t.string   "size",          limit: 3
+    t.integer  "model_item_id"
+    t.integer  "order_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_deleted",                                      default: false
+  end
+
+  add_index "order_items", ["model_item_id"], name: "index_order_items_on_model_item_id", using: :btree
+  add_index "order_items", ["order_id"], name: "index_order_items_on_order_id", using: :btree
+
+  create_table "orders", force: true do |t|
+    t.decimal  "subtotal",    precision: 6, scale: 2, default: 0.0
+    t.decimal  "total",       precision: 8, scale: 2, default: 0.0
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.boolean  "is_archived",                         default: false
+  end
+
+  add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "name"

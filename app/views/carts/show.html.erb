@@ -1,23 +1,23 @@
 <div id="mycart">
-<div class="p1 glassy-bg mb1 text-center radius-l1 radius-r1">
-  <h4>My Cart</h4>
-  <p class="mb0"> You've selected <span class="cart-count"><%=current_user.cart_count%></span> products!</p>
-</div>
+  <div class="p1 glassy-bg mb1 text-center radius-l1 radius-r1">
+    <h4>My Cart</h4>
 
+    <p class="mb0"> You've selected <span class="cart-count"><%= current_user.cart_count %></span> products!</p>
+  </div>
 
-<% @cart_products.each do |product|%>
-    <div data-equalizer class="cart-movie large-12 column mb1">
-        <%=link_to product do%>
-            <%=image_tag product.design_image.url(:thumb), class: "radius-l1"%>
-        <%end%>
-      <div class="column large-7 glassy-bg text-center" data-equalizer-watch>
-        <p class="scale ptm"> <%= product.name %> </p>
-      </div>
-      <div class="column large-3 primary-bg text-center radius-r1" data-equalizer-watch>
-        <%=link_to '' , data: {targetUrl: remove_from_cart_path(product)} do%>
-            <i class="fi-x right"></i>
-        <%end%>
-      </div>
-    </div>
-<%end%>
+  <div class="row">
+
+    <% @cart_items.each do |item| %>
+        <div class="col l4">
+          <div data-equalizer class="cart-movie large-12 column mb1">
+            <%= link_to '' do %>
+                <%= image_tag item.model_item.image.url(:thumb), class: "radius-l1" %>
+            <% end %>
+            <div class="column large-7 glassy-bg text-center" data-equalizer-watch>
+              <p class="scale ptm"> <%= item.model_item.model.name %> </p>
+            </div>
+          </div>
+        </div>
+    <% end %>
+  </div>
 </div>

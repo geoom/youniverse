@@ -15,23 +15,17 @@
 //= require materialize-sprockets
 //= require carts
 
-
 (function ($) {
 	$(function () {
-
-
 
 		$('.button-collapse').sideNav();
 		$('.modal-trigger').leanModal();
 
-
 		mixpanel.identify("00000");
 		mixpanel.people.set({
 			"$email": "anonymous@email.com",
-
 			"$created": "2015-09-01 16:53:54",
 			"$last_login": new Date(),
-
 			"gender": "Male"
 		});
 
@@ -40,7 +34,6 @@
 
 			var item_id = $(this).attr("id");
 			var sex = $(this).attr("sex");
-			console.log(sex);
 			var price = $(this).attr("price");
 
 			var menSizeOptions = "<label>Select size for men</label><select name='item-size' class='browser-default'><option value='' disabled selected>Choose your option</option><option value='s'>S</option><option value='m'>M</option><option value='l'>L</option><option value='xl'>XL</option></select>";

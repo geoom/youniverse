@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
 	validates_presence_of :email
 	has_many :authorizations
 	has_many :requests
+	has_many :orders
 
 	def self.new_with_session(params, session)
 		if session["devise.user_attributes"]
@@ -42,11 +43,17 @@ class User < ActiveRecord::Base
 	end
 
 	def cart_count
-		$redis.scard "cart#{id}"
+		get_current_order.order_items.count
 	end
 
-	def clear_cart_cache
-		$redis.del "cart#{id}"
+	def get_current_order
+		if Order.where(user_id: self.id, is_archived: false).count < 2
+			Order.find_or_create_by(user: current_user, is_archived:false) do |order|
+				order.user = self
+			end
+		else
+			Order.where(user_id: self.id, is_archived: false).last  # take the last created order
+		end
 	end
 
 end
