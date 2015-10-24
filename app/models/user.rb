@@ -48,7 +48,7 @@ class User < ActiveRecord::Base
 
 	def get_current_order
 		if Order.where(user_id: self.id, is_archived: false).count < 2
-			Order.find_or_create_by(user: current_user, is_archived:false) do |order|
+			Order.find_or_create_by(user: self, is_archived:false) do |order|
 				order.user = self
 			end
 		else
