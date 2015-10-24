@@ -20,7 +20,7 @@ class CartsController < ApplicationController
 		if new_item.save
 			render json: current_user.cart_count, status: :created
 		else
-			render json: new_order.errors, status: :unprocessable_entity
+			render json: new_item.errors, status: :unprocessable_entity
 		end
 	end
 
