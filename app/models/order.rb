@@ -1,6 +1,7 @@
 class Order < ActiveRecord::Base
 	belongs_to :user
 	has_many :order_items, :dependent => :destroy
+	has_one :payment, :dependent => :destroy
 
 
 	def paypal_url(return_path)
@@ -13,7 +14,8 @@ class Order < ActiveRecord::Base
 				upload: 1,
 				return: "#{Rails.application.secrets.app_host}#{return_path}",
 				invoice: self.id,
-				currency_code: 'USD'
+				currency_code: 'USD',
+				notify_url: "#{Rails.application.secrets.app_host}/hook"
 		}
 
 		counter = 1

@@ -21,4 +21,6 @@ Rails.application.routes.draw do
 		get 'checkout/', to: 'carts#checkout'
 	end
 
+	post '/hook' => 'carts#hook'
+
 end

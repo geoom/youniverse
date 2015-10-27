@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151024101615) do
+ActiveRecord::Schema.define(version: 20151027023627) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -108,6 +108,19 @@ ActiveRecord::Schema.define(version: 20151024101615) do
   end
 
   add_index "orders", ["user_id"], name: "index_orders_on_user_id", using: :btree
+
+  create_table "payments", force: true do |t|
+    t.string   "channel"
+    t.text     "notification_params"
+    t.string   "status"
+    t.string   "transaction_id"
+    t.datetime "purchased_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "order_id"
+  end
+
+  add_index "payments", ["order_id"], name: "index_payments_on_order_id", using: :btree
 
   create_table "products", force: true do |t|
     t.string   "name"
