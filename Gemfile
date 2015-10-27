@@ -1,7 +1,9 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.7'
+gem 'rails', '4.2.2  '
+
+gem 'responders', '~> 2.0'  # set of Rails responders
 # Use mysql as the database for Active Record
 gem 'mysql2', '~> 0.3.18'
 gem 'sqlite3', group: :test
@@ -80,3 +82,9 @@ gem 'redis'
 gem 'redis-namespace'
 gem 'redis-rails'
 gem 'redis-rack-cache'
+
+# API wrapper for MailChimp's API
+gem 'gibbon', '2.1.0'
+
+# library for create background jobs
+gem 'resque', '~> 2.0.0.pre.1', github: 'resque/resque'

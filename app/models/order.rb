@@ -9,7 +9,7 @@ class Order < ActiveRecord::Base
 		# some_item = self.order_items.take
 
 		values = {
-				business: 'hi.geoom-facilitator@gmail.com',
+				business: "#{Rails.application.secrets.business_paypal_email}",
 				cmd: '_cart',
 				upload: 1,
 				return: "#{Rails.application.secrets.app_host}#{return_path}",
