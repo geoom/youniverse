@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 	resource :cart, only: [:show] do
 		put 'add/', to: 'carts#add', as: :add_to
 		put 'remove/', to: 'carts#remove', as: :remove_from
+		get 'checkout/', to: 'carts#checkout'
 	end
 
 end

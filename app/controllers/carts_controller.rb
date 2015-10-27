@@ -29,6 +29,10 @@ class CartsController < ApplicationController
 		# render json: current_user.cart_count, status: 200
 	end
 
+	def checkout
+		redirect_to current_user.get_current_order.paypal_url(cart_path)
+	end
+
 	private
 
 	def current_user_cart
