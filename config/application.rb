@@ -23,6 +23,6 @@ module Youniverse
 		config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
 
 
-		active_job.queue_adapter = :resque
+		config.active_job.queue_adapter = :resque
 	end
 end

@@ -75,8 +75,11 @@
 
 			if(price != undefined){
 				$("input[name='item-price']").val(price);
+				$('.item-price').html('<p><strong>$ '+ price +' </strong></p>');
 			}else{
 				$("input[name='item-price']").removeAttr('value');
+				$('.item-price').html('');
+
 			}
 
 			return false;
