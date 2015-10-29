@@ -27,7 +27,8 @@ class CartsController < ApplicationController
 	end
 
 	def checkout
-		redirect_to current_user.get_current_order.paypal_url(cart_path)
+		order_to_process = current_user.get_current_order
+		redirect_to order_to_process.paypal_url(payment_path(order_to_process))
 	end
 
 
@@ -40,6 +41,10 @@ class CartsController < ApplicationController
 			transaction_order = Order.find(params[:invoice])
 			Payment.create channel: 'paypal', notification_params: params, status: status,
 			               transaction_id: params[:txn_id], purchased_at: Time.now, order: transaction_order
+
+			transaction_order.is_archived = true
+			transaction_order.save
+
 		end
 		render nothing: true
 	end
