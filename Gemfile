@@ -43,7 +43,7 @@ gem 'omniauth-twitter'  # twitter provider impl. for omniauth
 gem 'rmagick'  # an interface to the ImageMagick and GraphicsMagick
 
 gem 'formtastic', '~> 3.0'
-
+gem 'simple_form'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

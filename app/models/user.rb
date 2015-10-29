@@ -4,10 +4,17 @@ class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable,
 	       :recoverable, :rememberable, :trackable, :validatable, :omniauthable
 
-	validates_presence_of :email
 	has_many :authorizations
 	has_many :requests
 	has_many :orders
+
+
+	validates :email, presence: true, length: {
+			minimum: 5,
+			maximum: 80,
+			too_short: "must have at least %{count} words",
+			too_long: "must have at most %{count} words"
+	}
 
 	def self.new_with_session(params, session)
 		if session["devise.user_attributes"]
@@ -57,7 +64,7 @@ class User < ActiveRecord::Base
 	end
 
 
-	private
+	# private
 
 	def subscribe_user_to_mailing_list
 		SubscribeUserToMailingListJob.perform_later(self)

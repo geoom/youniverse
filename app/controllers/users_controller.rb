@@ -19,6 +19,8 @@ class UsersController < ApplicationController
 	def update
 		# 2015-07-23 RICHARD: Updated to use strong parameters
 		if @user.update_attributes(user_params)
+
+			@user.subscribe_user_to_mailing_list
 			redirect_to @user, notice: 'User was successfully updated.'
 		else
 			render action: 'edit'
@@ -37,6 +39,6 @@ class UsersController < ApplicationController
 	end
 
 	def user_params
-		params.require(:user).permit(:name, :user, :about)
+		params.require(:user).permit(:name, :email, :about)
 	end
 end

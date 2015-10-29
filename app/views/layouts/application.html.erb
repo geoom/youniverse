@@ -10,21 +10,29 @@
   <%= favicon_link_tag 'ico/favicon.ico', type: 'image/x-icon' %>
   <%= csrf_meta_tags %>
   <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-      <script src="https://raw.github.com/scottjehl/Respond/master/dest/respond.min.js"></script>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <script src="https://raw.github.com/scottjehl/Respond/master/dest/respond.min.js"></script>
   <![endif]-->
 </head>
 <body>
-    <%= render 'shared/header' %>
-    <!--<p class="notice"><%= notice %></p>-->
-    <!--<p class="alert"><%= alert %></p>-->
-    <%= yield %>
-    <%= render 'shared/footer' %>
+<%= render 'shared/header' %>
+<!--<p class="notice"><%= notice %></p>-->
+<!--<p class="alert"><%= alert %></p>-->
 
-    <%= render 'shared/login_modal' %>
+<% if user_signed_in? and (!current_user.email or current_user.email.length == 0) %>
+    <p style="text-align: center; font-size: 18px">
+      <strong>Please, provide your email address to improve your
+        experience: <%= link_to 'edit profile', edit_user_path(current_user) %></strong>
+    </p>
+<% end %>
 
-    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-    <%= render 'shared/mp_script' %>
-    <%= render 'shared/ga_script' %>
+<%= yield %>
+<%= render 'shared/footer' %>
+
+<%= render 'shared/login_modal' %>
+
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+<%= render 'shared/mp_script' %>
+<%= render 'shared/ga_script' %>
 </body>
 </html>

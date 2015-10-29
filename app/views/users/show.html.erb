@@ -2,7 +2,9 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @user.name %>
-  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+  <%= @user.name %> (<%= link_to 'edit profile', edit_user_path(@user) %>)
+  <br/><br/><br/><br/><br/><br/>
+
+  <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </p>
 
