@@ -21,7 +21,7 @@ class SubscribeUserToMailingListJob < ActiveJob::Base
 					body: {
 							email_address: email,
 							status: 'subscribed',
-							merge_fields: {NAME: name}
+							merge_fields: {FNAME: name}
 					})
 			logger.info "Subscribed #{user.email} to MailChimp" if result
 		rescue Gibbon::MailChimpError => e

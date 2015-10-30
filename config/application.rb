@@ -20,7 +20,9 @@ module Youniverse
 		# config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
 		# config.i18n.default_locale = :de
 
-		config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+		# config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+		config.action_mailer.raise_delivery_errors = true
+		config.action_mailer.perform_deliveries = true
 
 		# Do not swallow errors in after_commit/after_rollback callbacks.
 		config.active_record.raise_in_transactional_callbacks = true

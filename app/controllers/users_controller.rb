@@ -18,9 +18,15 @@ class UsersController < ApplicationController
 	# PATCH/PUT /users/1
 	def update
 		# 2015-07-23 RICHARD: Updated to use strong parameters
+
+		user_had_empty_email = @user.empty_email?
+
+		# the user is forced to enter your email at the moment
 		if @user.update_attributes(user_params)
 
 			@user.subscribe_user_to_mailing_list
+			@user.send_welcome_email_to_user if @user.try(:email) and user_had_empty_email
+
 			redirect_to @user, notice: 'User was successfully updated.'
 		else
 			render action: 'edit'

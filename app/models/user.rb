@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
 	has_many :orders
 
 
-	validates :email, presence: true, length: {
+	validates :email, presence: true, uniqueness: true, length: {
 			minimum: 5,
 			maximum: 80,
 			too_short: "must have at least %{count} words",
@@ -35,6 +35,8 @@ class User < ActiveRecord::Base
 				user = User.new
 				user.password = Devise.friendly_token[0, 10]
 				user.name = auth.info.name
+				puts "auth.info.email is"
+				puts auth.info.email
 				user.email = auth.info.email
 				if auth.provider == "twitter"
 					user.save(:validate => false)
@@ -63,11 +65,18 @@ class User < ActiveRecord::Base
 		end
 	end
 
+	def empty_email?
+		!self.try(:email) or self.try(:email).length == 0
+	end
 
 	# private
 
 	def subscribe_user_to_mailing_list
 		SubscribeUserToMailingListJob.perform_later(self)
+	end
+
+	def send_welcome_email_to_user
+		UserMailer.welcome_email(self).deliver_later
 	end
 
 end
