@@ -89,4 +89,4 @@ gem 'gibbon', '2.1.0'
 # library for create background jobs
 gem 'resque', '~> 2.0.0.pre.1', github: 'resque/resque'
 
-gem 'mandrill-api', require: 'mandrill'  # wrapper for mandrill services
+gem 'mandrill-api'  # wrapper for mandrill services

@@ -1,3 +1,5 @@
+require 'mandrill'
+
 class ApplicationMailer < ActionMailer::Base
 	default from: 'Youniverse club <no-reply@youniverse.club>'
 	layout 'mailer'
