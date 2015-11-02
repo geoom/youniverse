@@ -90,3 +90,5 @@ gem 'gibbon', '2.1.0'
 gem 'resque', '~> 2.0.0.pre.1', github: 'resque/resque'
 
 gem 'mandrill-api'  # wrapper for mandrill services
+
+gem 'sentry-raven'
