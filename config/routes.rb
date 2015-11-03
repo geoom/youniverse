@@ -23,6 +23,7 @@ Rails.application.routes.draw do
 
 	post '/hook' => 'carts#hook'
 
+	get 'orders/' => 'orders#index'
 	get 'orders/:id/payment' => 'orders#payment', as: :payment
 
 end

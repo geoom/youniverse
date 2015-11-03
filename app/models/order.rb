@@ -4,6 +4,10 @@ class Order < ActiveRecord::Base
 	has_one :payment, :dependent => :destroy
 
 
+	def has_payment?
+		!!self.payment
+	end
+
 	def paypal_url(return_path)
 
 		# some_item = self.order_items.take
