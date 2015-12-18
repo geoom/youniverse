@@ -5,7 +5,7 @@ set :application, 'youniverse'
 
 # setup repo details
 set :scm, :git
-set :repo_url, 'git@bitbucket.org:geoom/youniverse.git'
+set :repo_url, 'git+ssh://git@github.com/geoom/youniverse.git'
 set :branch, 'master'
 
 set :deploy_user, 'deployer'
