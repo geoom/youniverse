@@ -10,8 +10,6 @@ class Order < ActiveRecord::Base
 
 	def paypal_url(return_path)
 
-		# some_item = self.order_items.take
-
 		values = {
 				business: "#{Rails.application.secrets.business_paypal_email}",
 				cmd: '_cart',
