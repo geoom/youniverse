@@ -1,7 +1,9 @@
 <!-- Menu bar -->
 <nav class="light-blue darken-1" role="navigation">
   <div class="nav-wrapper container">
-    <%= link_to 'Y', root_path, class: 'brand-logo' %>
+    <%= link_to root_path, class: 'brand-logo' do %>
+        <%= image_tag('ynvs-logo.png', alt: 'youniverse', with: 60, height: 60) %>
+    <% end %>
 
     <% if user_signed_in? %>
         <div class="hide-on-med-and-down" style="float: right; margin-left: 30px;">
@@ -14,9 +16,9 @@
       <% if user_signed_in? %>
           <li><%= link_to current_user.name, current_user %></li>
           <li>
-            <%= link_to cart_path do%>
+            <%= link_to cart_path do %>
                 My Cart (<span class="cart-count"><%= current_user.cart_count %></span>)
-            <%end%>
+            <% end %>
           </li>
           <li><%= link_to "Logout", destroy_user_session_path %></li>
       <% else %>
