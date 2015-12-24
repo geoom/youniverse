@@ -10,11 +10,11 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require ynvrs/dist/css/ynvrs.css
  *= require_self
  *= require carts
  */
 
-@import "materialize";
 
 .icon-block {
 	padding: 0 15px;

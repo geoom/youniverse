@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require materialize-sprockets
+//= require ynvrs/dist/js/ynvrs.js
 //= require carts
 
 (function ($) {

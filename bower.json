@@ -3,7 +3,8 @@
   "vendor": {
 	  "name": "bower-rails generated vendor assets",
 	  "dependencies": {
-		  "mdi": "~1.2.65"
+		  "mdi": "~1.2.65",
+		  "ynvrs": "git@github.com:geoom/youniverse-skin.git#v0.1.1"
 	  }
   }
 }
