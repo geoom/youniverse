@@ -21,7 +21,7 @@ set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public
 
 set(:executable_config_files, %w(unicorn_init.sh))
 
-set :keep_releases, 5
+set :keep_releases, 4
 
 # set :rvm_ruby_version, '1.26.11'
 set :default_env, {rvm_bin_path: '~/.rvm/bin'}
@@ -49,6 +49,7 @@ namespace :deploy do
 	after 'check:write_permissions', 'check:revision'
 	before :starting, 'setup:upload_yml'
 	before 'unicorn:restart', 'setup:symlink_config'
+	before 'assets:precompile', 'bower:install'
 	after 'setup:symlink_config', 'deploy:sync_assets'
 	after :deploy, 'unicorn:restart'
 	after 'unicorn:restart', 'nginx:restart'

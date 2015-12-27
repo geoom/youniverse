@@ -19,7 +19,7 @@ namespace :deploy do
 	desc 'Synchronize assets files with S3 bucket'
 	task :sync_assets do
 		on roles(:app) do
-			within "#{current_path}" do
+			within "#{release_path}" do
 				with rails_env: :production do
 					execute :rake, 'assets:precompile'
 				end

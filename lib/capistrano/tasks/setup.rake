@@ -12,7 +12,7 @@ namespace :setup do
 	desc 'Seed the database'
 	task :seed_db do
 		on roles(:app) do
-			within "#{current_path}" do
+			within "#{release_path}" do
 				with rails_env: :production do
 					execute :rake, 'db:seed'
 				end
@@ -25,13 +25,13 @@ namespace :setup do
 		on roles(:app) do
 			sudo 'rm -f /etc/nginx/sites-enabled/default'
 
-			sudo "ln -nfs #{current_path}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
-			sudo "ln -nfs #{current_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{fetch(:application)}"
+			sudo "ln -nfs #{release_path}/config/nginx.conf /etc/nginx/sites-enabled/#{fetch(:application)}"
+			sudo "ln -nfs #{release_path}/config/unicorn_init.sh /etc/init.d/unicorn_#{fetch(:application)}"
 
 			# which of the above files should be marked as executable
 			executable_files = fetch(:executable_config_files)
 			executable_files.each do |file|
-				execute :chmod, "+x #{current_path}/config/#{file}"
+				execute :chmod, "+x #{release_path}/config/#{file}"
 			end
 		end
 	end
