@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 	get 'home' => 'static_pages#home'
 	get 'about' => 'static_pages#about'
 	get 'tos' => 'static_pages#tos'
+	get 'privacy' => 'static_pages#privacy'
 
 	resources :products, only: [:show]
 	resources :users
