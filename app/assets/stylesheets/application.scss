@@ -36,3 +36,18 @@
 .thumb.selected {
 	border:3px #666 solid;
 }
+
+.header {
+	color: #ee6e73;
+	font-weight: 300;
+}
+
+p, li {
+	color: rgba(0,0,0,0.71);
+	padding: 0;
+	-webkit-font-smoothing: antialiased;
+}
+
+ul.list--disc-style li{
+	list-style-type: disc;
+}

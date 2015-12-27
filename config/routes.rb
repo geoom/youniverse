@@ -7,8 +7,8 @@ Rails.application.routes.draw do
 	devise_for :users, controllers: {omniauth_callbacks: "omniauth_sessions"}
 	devise_for :admin_users, ActiveAdmin::Devise.config
 
-
 	get 'home' => 'static_pages#home'
+	get 'about' => 'static_pages#about'
 
 	resources :products, only: [:show]
 	resources :users
