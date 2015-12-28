@@ -36,9 +36,9 @@
 			var sex = $(this).attr("sex");
 			var price = $(this).attr("price");
 
-			var menSizeOptions = "<label>Select size for men</label><select name='item-size' class='browser-default'><option value='' disabled selected>Choose your option</option><option value='s'>S</option><option value='m'>M</option><option value='l'>L</option><option value='xl'>XL</option></select>";
-			var womanSizeOptions = "<label>Select size for woman</label><select name='item-size' class='browser-default'><option value='' disabled selected>Choose your option</option><option value='s'>S</option><option value='m'>M</option><option value='l'>L</option><option value='xl'>XL</option></select>";
-			var unisexSizeOptions = "<label>Select size for unisex</label><select name='item-size' class='browser-default'><option value='' disabled selected>Choose your option</option><option value='xs'>XS</option><option value='s'>S</option><option value='m'>M</option><option value='l'>L</option><option value='xl'>XL</option></select>";
+			var menSizeOptions = "<label>Elige tamaño (hombre)</label><select name='item-size' class='browser-default'><option value='' disabled selected>Escoge tu opción</option><option value='s'>S</option><option value='m'>M</option><option value='l'>L</option><option value='xl'>XL</option></select>";
+			var womanSizeOptions = "<label>Elige tamaño (mujer)</label><select name='item-size' class='browser-default'><option value='' disabled selected>Escoge tu opción</option><option value='s'>S</option><option value='m'>M</option><option value='l'>L</option><option value='xl'>XL</option></select>";
+			var unisexSizeOptions = "<label>Elige tamaño (unisex)</label><select name='item-size' class='browser-default'><option value='' disabled selected>Escoge tu opción</option><option value='xs'>XS</option><option value='s'>S</option><option value='m'>M</option><option value='l'>L</option><option value='xl'>XL</option></select>";
 
 
 			$('#image').hide();
@@ -61,7 +61,7 @@
 				}
 				$("input[name='item-sex']").val(sex);
 			}else{
-				$('.size-options').html('<p><strong>Select a model below</strong></p>');
+				$('.size-options').html('<p><strong>Selecciona un modelo abajo</strong></p>');
 				$("input[name='item-sex']").removeAttr('value');
 			}
 

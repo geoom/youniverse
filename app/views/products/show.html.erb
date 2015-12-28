@@ -45,11 +45,11 @@
 
       <% if signed_in? %>
           <%= link_to '', id: 'add-to-cart-button', class: 'waves-effect waves-light btn light-blue darken-1', data: {url: add_to_cart_path} do %>
-              <i class="material-icons left">shopping_cart</i>Add to cart
+              <i class="material-icons left">shopping_cart</i>Agregar al carrito
           <% end %>
       <% else %>
-          <%= link_to '', class: 'waves-effect waves-light btn light-blue darken-1', onClick: "alert('Sign in before!')" do %>
-              <i class="material-icons left">shopping_cart</i>Add to cart
+          <%= link_to '', class: 'waves-effect waves-light btn light-blue darken-1', onClick: "alert('Antes debes iniciar sesión!')" do %>
+              <i class="material-icons left">shopping_cart</i>Agregar al carrito
           <% end %>
       <% end %>
     </div>

@@ -32,16 +32,16 @@ $(window).load ->
 
 	is_valid_data = (id, size, sex, price) ->
 		if id is ''
-			alert('You must to select a model')
+			alert('Antes debes seleccionar un modelo')
 			return false
 		if not size? or typeof size is 'undefined'
-			alert('You must to select a size')
+			alert('Antes debes seleccionar un tamaño')
 			return false
 		if sex is ''
-			alert('data is invalid: sex is missing')
+			alert('datos inválidos: sexo no se encuentra')
 			return false
 		if price is ''
-			alert('data is invalid: price is missing')
+			alert('datos inválidos: precio no se encuentra')
 			return false
 		return true
 

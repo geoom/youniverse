@@ -5,14 +5,14 @@
       <div class="col s12">
 
         <div class="valign center">
-          <h4>Sign in to Youniverse</h4><br/>
+          <h4>Iniciar sesión</h4><br/>
         </div>
 
         <div class="row center">
           <div class="col s12">
             <% ['twitter'].each do |provider| %>
                 <%= link_to omniauth_authorize_path('user', provider), class: "login-google btn waves-effect waves-light red" do %>
-                    <i class="mdi mdi-google left"></i> <%= "Sign in with #{provider.to_s.titleize}" %>
+                    <i class="mdi mdi-google left"></i> <%= "Iniciar con #{provider.to_s.titleize}" %>
                 <% end %>
                 <br/>
             <% end %>
@@ -20,8 +20,8 @@
         </div>
 
         <div class="row center">
-          <p class="small">We will never post to Twitter or Facebook without your permission.
-            For more info, please see our <a href="#">Login FAQ</a>.</p>
+          <p class="small">No publicamos nada en tus cuentas sin tu permiso.
+            Para más información, mira la sección de <a href="#">FAQ's</a>.</p>
         </div>
 
       </div>

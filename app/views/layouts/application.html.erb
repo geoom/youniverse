@@ -21,8 +21,8 @@
 
 <% if user_signed_in? and current_user.empty_email? %>
     <p style="text-align: center; font-size: 18px">
-      <strong>Please, provide your email address to improve your
-        experience: <%= link_to 'edit profile', edit_user_path(current_user) %></strong>
+      <strong>Por favor, indica tu dirección de email, esto lo hacemos para mejorar la
+        experiencia: <%= link_to 'editar perfil', edit_user_path(current_user) %></strong>
     </p>
 <% end %>
 
