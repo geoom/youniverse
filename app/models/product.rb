@@ -45,4 +45,10 @@ class Product < ActiveRecord::Base
 		end
 	end
 
+	def featured_model_item
+		first_model = self.models.first
+		# byebug
+		first_model.model_items.first  # get first model item created
+	end
+
 end

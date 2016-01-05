@@ -18,14 +18,13 @@
 <div class="section">
   <div class="row">
 
-
     <% if @products.each do |product| %>
 
         <div class="col s6 m4 l3">
           <div class="card">
-            <% if product.design_image.exists? %>
+            <% if product.featured_model_item.image.exists? %>
                 <div class="card-image waves-effect waves-block waves-light">
-                  <%= image_tag product.design_image.url(:preview) %>
+                  <%= image_tag product.featured_model_item.image.url(:preview) %>
                 </div>
             <% end %>
 
