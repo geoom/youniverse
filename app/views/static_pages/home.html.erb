@@ -16,50 +16,40 @@
 
 <!-- Main content -->
 <div class="section">
-  <div class="row">
 
-    <% if @products.each do |product| %>
+  <div class="container">
 
-        <div class="col s6 m4 l3">
-          <div class="card">
-            <% if product.featured_model_item.image.exists? %>
-                <div class="card-image waves-effect waves-block waves-light">
-                  <%= image_tag product.featured_model_item.image.url(:preview) %>
-                </div>
-            <% end %>
+    <div class="row">
 
-            <ul class="card-action-buttons">
-              <li><a class="btn-floating waves-effect waves-light red accent-2"><i class="mdi-action-favorite"></i></a>
-              </li>
-              <li>
-                <a class="btn-floating waves-effect waves-light light-blue"><i class="mdi-action-info activator"></i></a>
-              </li>
-            </ul>
-            <div class="card-content">
-              <p class="card-title activator grey-text text-darken-4">
-                <%= link_to product.name, product %>
-              </p>
+      <% if @products.each do |product| %>
 
-            </div>
-            <div class="card-reveal" style="display: none; transform: translateY(0px);">
-          <span class="card-title grey-text text-darken-4">
-            <a href="#"><%= product.name %></a><i class="material-icons right">cerrar</i></span>
+          <div class="col s6 m4 l3">
+            <div class="card product-tile">
+              <%= link_to product do %>
 
-              <p style="margin: 0; font-size: 12px;">Creado por pepito</p>
+                  <% if product.featured_model_item.image.exists? %>
+                      <div class="card-image waves-effect waves-block waves-light">
+                        <%= image_tag product.featured_model_item.image.url(:preview) %>
+                      </div>
+                  <% end %>
 
-              <p><%= product.description %></p>
+                  <div class="card-content">
+                    <p class="product-name grey-text text-darken-4 center-align"><%= product.name %></p>
+                    <p class="product-author grey-text text-darken center-align">Por pepito</p>
+                  </div>
 
-              <p><a href="#!">Ver más detalles</a></p>
+              <% end %>
             </div>
           </div>
-        </div>
-    <% end.empty? %>
-        <p> no publications so far :(</p>
+      <% end.empty? %>
+          <p> no publications so far :(</p>
 
-    <% end %>
+      <% end %>
 
+    </div>
 
   </div>
+
 </div>
 <!-- End Main content -->
 
