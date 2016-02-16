@@ -10,8 +10,8 @@
 
         <div class="row center">
           <div class="col s12">
-            <% ['twitter'].each do |provider| %>
-                <%= link_to omniauth_authorize_path('user', provider), class: "login-google btn waves-effect waves-light red" do %>
+            <% ['facebook'].each do |provider| %>
+                <%= link_to omniauth_authorize_path('user', provider), class: "login-facebook btn waves-effect waves-light light-blue darken-4" do %>
                     <i class="mdi mdi-google left"></i> <%= "Iniciar con #{provider.to_s.titleize}" %>
                 <% end %>
                 <br/>
