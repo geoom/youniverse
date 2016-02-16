@@ -12,6 +12,7 @@ gem 'sass'
 gem 'sass-rails', '~> 5.0'
 gem 'materialize-sass' # Materialize css framework
 gem 'bower-rails'
+gem 'angular-rails-templates'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -20,13 +21,12 @@ gem 'coffee-rails', '~> 4.0.0'
 # gem 'therubyracer',  platforms: :ruby
 
 gem 'asset_sync' # Synchronises Assets between Rails and S3
-
 gem 'activeadmin', github: 'gregbell/active_admin'  # administration framework
-
 gem 'jquery-rails'  # Use jquery as the JavaScript library
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
+gem 'sprockets', '2.12.3'
 
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
@@ -36,9 +36,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'devise'  # authentication
 gem 'twitter'  # sdk for twitter api
-
+gem 'koala'  # library for Facebook with support for OAuth authenticatio
 gem 'omniauth'  # authentication system for social signin
 gem 'omniauth-oauth2'  # oauth 2 impl. for omniauth
+gem 'omniauth-facebook'
 gem 'omniauth-twitter'  # twitter provider impl. for omniauth
 gem 'rmagick'  # an interface to the ImageMagick and GraphicsMagick
 
