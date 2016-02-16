@@ -10,4 +10,4 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w(*.svg *.eot *.woff *.ttf)
 
 Rails.application.config.assets.precompile << Proc.new {
-		|path, fn| fn =~ /vendor\/assets\/bower_components\/mdi\/css/ && !%w(.css ).include?(File.extname(path)) }
+		|path, fn| fn =~ /vendor\/assets\/bower_components\/mdi\/css/ && !%w(.css .map).include?(File.extname(path)) }
