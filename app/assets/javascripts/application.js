@@ -12,8 +12,35 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require angular
+//= require angular-route
+//= require angular-resource
+//= require angular-rails-templates
+//= require_tree ./../templates
+
+//= require product-page/product-page.module
+//= require product-page/page-view-ctrl
+
 //= require ynvrs/dist/js/ynvrs.js
 //= require carts
+
+$(document).on('ready page:load', function() {
+	angular.bootstrap(document.body, ['app'])
+});
+
+
+angular.module('app', [
+	'ngRoute',
+	'productPage']);
+
+angular.module('app').config(['$routeProvider', '$locationProvider', '$httpProvider',
+	function ($routeProvider, $locationProvider, $httpProvider) {
+//		$routeProvider.otherwise({redirectTo:'/404'});
+		$httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+//		$locationProvider.html5Mode({
+//			enabled: true
+//		});
+	}]);
 
 (function ($) {
 	$(function () {

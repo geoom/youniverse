@@ -31,7 +31,7 @@
       <input type="hidden" name="item-sex"/>
       <input type="hidden" name="item-price"/>
 
-      <p><%= @product.name %></p>
+      <p><%= @product.name %></p
 
       <p><%= @product.description %></p>
 
@@ -40,6 +40,10 @@
       </div>
 
       <div class="item-price"></div>
+
+      <div ng-controller="PageViewCtrl as pageView">
+        {{ pageView.name }}
+      </div>
 
       <br/><br/><br/>
 
