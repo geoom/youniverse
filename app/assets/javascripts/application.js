@@ -23,24 +23,24 @@
 
 //= require ynvrs/dist/js/ynvrs.js
 //= require carts
+//
+//$(document).on('ready page:load', function() {
+//	angular.bootstrap(document.body, ['app'])
+//});
 
-$(document).on('ready page:load', function() {
-	angular.bootstrap(document.body, ['app'])
-});
 
-
-angular.module('app', [
-	'ngRoute',
-	'productPage']);
-
-angular.module('app').config(['$routeProvider', '$locationProvider', '$httpProvider',
-	function ($routeProvider, $locationProvider, $httpProvider) {
-//		$routeProvider.otherwise({redirectTo:'/404'});
-		$httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
-//		$locationProvider.html5Mode({
-//			enabled: true
-//		});
-	}]);
+//angular.module('app', [
+//	'ngRoute',
+//	'productPage']);
+//
+//angular.module('app').config(['$routeProvider', '$locationProvider', '$httpProvider',
+//	function ($routeProvider, $locationProvider, $httpProvider) {
+////		$routeProvider.otherwise({redirectTo:'/404'});
+//		$httpProvider.defaults.headers.common['X-CSRF-Token'] = $('meta[name=csrf-token]').attr('content');
+////		$locationProvider.html5Mode({
+////			enabled: true
+////		});
+//	}]);
 
 (function ($) {
 	$(function () {

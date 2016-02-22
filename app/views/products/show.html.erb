@@ -31,19 +31,24 @@
       <input type="hidden" name="item-sex"/>
       <input type="hidden" name="item-price"/>
 
-      <p><%= @product.name %></p
+      <h4><%= @product.name %></h4>
+      <p style="text-align: center; font-size: smaller; margin: 0;"><strong>5</strong> vendidos</p>
+      <p style="text-align: center; font-size: smaller; margin: 0;"><strong>7</strong> más para imprimir</p>
+      <p style="text-align: center; font-size: smaller; margin: 0;"><strong>8</strong> días restantes</p>
 
       <p><%= @product.description %></p>
 
+      <br/><br/>
+
       <div class="size-options">
-        <p><strong>Select a model below</strong></p>
+        <p><strong>* Select a model below</strong></p>
       </div>
 
       <div class="item-price"></div>
 
-      <div ng-controller="PageViewCtrl as pageView">
-        {{ pageView.name }}
-      </div>
+      <!--<div ng-controller="PageViewCtrl as pageView">-->
+        <!--{{ pageView.name }}-->
+      <!--</div>-->
 
       <br/><br/><br/>
 
