@@ -2,7 +2,7 @@
   "name": "youniverse",
   "dependencies": {
     "mdi": "~1.2.65",
-    "ynvrs": "git@github.com:geoom/youniverse-skin.git#v0.1.1",
+    "ynvrs": "git@github.com:geoom/youniverse-skin.git#master",
     "angular": "~1.4.8",
     "angular-resource": "~1.4.8",
     "angular-route": "~1.4.8"
